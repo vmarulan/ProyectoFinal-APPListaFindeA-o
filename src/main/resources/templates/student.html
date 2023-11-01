@@ -16,8 +16,8 @@
             <div class="d-flex gap-4 justify-content-center">
                 <div th:each = " students : ${students}"  class="card" style="width: 18rem;">
                     <div th:switch="${students.available}">
-                        <img th:case="true" class="card-img-top" src="alegre.jpg" alt="Card image cap">
-                        <img th:case="false" class="card-img-top" src="triste.png" alt="Card image cap">
+                        <img th:case="true" class="card-img-top" src="https://png.pngtree.com/png-clipart/20210309/original/pngtree-happy-face-3d-render-emoji-side-view-png-image_5874667.jpg">
+                        <img th:case="false" class="card-img-top" src="https://w7.pngwing.com/pngs/90/534/png-transparent-computer-icons-face-emoticon-sad-people-smiley-sadness.png">
                     </div>
                     <div class="card-body">
                         <h5 class="card-title" th:text="${students.name}"></h5>
