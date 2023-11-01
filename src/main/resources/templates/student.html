@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Estudiantes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <main>
+
+        <div class="px-4 py-5 my-5 text-center">
+            <h1 class="display-5 fw-bold mb-4">Estudiantes</h1>
+            <div class="d-flex gap-4 justify-content-center">
+                <div th:each = " students : ${students}"  class="card" style="width: 18rem;">
+                    <div th:switch="${students.available}">
+                        <img th:case="true" class="card-img-top" src="alegre.jpg" alt="Card image cap">
+                        <img th:case="false" class="card-img-top" src="triste.png" alt="Card image cap">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title" th:text="${students.name}"></h5>
+                        <strong> <p class="card-text" th:text =" 'Pagó: ' + '$'+ ${students.age}"></p> </strong>
+                        <div th:if="${!students.available}">
+                           <form th:action = "@{/student/{id}(id=${students.id})}" th:method="patch" >
+                                <button type="submit" class="btn btn-primary">Habilitar</button>
+                            </form>
+                        </div>
+                    </div>
+                    <form th:action = "@{/student/{id}(id=${students.id})}" th:method="delete">
+                        <button type="submit" class="btn btn-danger mb-3">Eliminar Estudiante</button>
+                    </form>
+                    <div>
+                        <a th:href="@{/student/edit/{id}(id=${students.id})}" class="btn btn-primary">Editar Estudiante</a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="/students/newStudent" class="btn btn-primary">Añadir Estudiante</a>
+            </div>
+        </div>
+    </main>
+    <style>
+        body {
+          margin: 0;
+          padding: 0;
+          background-image: url('coveñas.jpg');
+          background-size: 1600px 800px;
+          background-repeat: 2 2;
+          background-attachment: fixed;
+        }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
