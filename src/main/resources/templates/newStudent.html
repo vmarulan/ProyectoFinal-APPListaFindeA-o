@@ -23,7 +23,7 @@
         <H1> Nuevo Estudiante</H1>
         <form th:action="@{/addStudent}" th:method="post" th:object="${students}" class="d-flex flex-column gap-3 align-items-center">
             <input th:field="*{name}" class="form-control" type="text" placeholder="Nombre del Estudiante"/>
-            <input th:field="*{age}" class="form-control" type="number" placeholder="Edad del Estudiante"/>
+            <input th:field="*{pago}" class="form-control" type="number" placeholder="Edad del Estudiante"/>
             <button class="btn btn-primary" type="submit">Guardar</button>
         </form>
     </div>

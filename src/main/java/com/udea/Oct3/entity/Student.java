@@ -13,7 +13,7 @@ public class Student {
     @Column
     private String name;
     @Column
-    private int age;
+    private double pago;
     @Column
     private boolean available;
     public Integer getId() {
@@ -32,12 +32,12 @@ public class Student {
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
+    public double getPago() {
+        return pago;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setPago(double pago) {
+        this.pago = pago;
     }
 
     public boolean isAvailable() {

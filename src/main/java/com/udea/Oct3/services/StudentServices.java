@@ -31,7 +31,7 @@ public class StudentServices {
     public Student updateStudent (Student student){
         Student existingStudent = studentRepository.findById(student.getId()).orElse(null);
         existingStudent.setName(student.getName());
-        existingStudent.setAge(student.getAge());
+        existingStudent.setPago(student.getPago());
         existingStudent.setAvailable(student.isAvailable());
         return studentRepository.save(existingStudent);
     }
